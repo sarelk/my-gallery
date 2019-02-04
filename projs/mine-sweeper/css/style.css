@@ -1,0 +1,127 @@
+.board table {
+    table-layout: fixed;
+    width:350px;
+    height: 350px;
+    margin: 0 auto;
+}
+
+table th {
+    border:0px;
+}
+
+.game {
+    position: absolute;
+    top:2px;
+    left:0px;
+    right:0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: 20px;
+    margin-top:5px;
+    /* background-color: red; */
+}
+
+.hidden-grey {
+    background-color:#BDBDBD;
+    border: 5px solid;
+    border-color: #fff #aca899 #aca899;
+}
+
+.grey {
+    background-color:#BDBDBD;
+}
+
+.mine {
+    /* background-color: red; */
+    background: url(../img/mine.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.border {
+    border: 3px solid red;
+}
+
+.game img {
+    width: 30px;
+    height: 30px;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.flag {
+    background: url(../img/flag.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+    /* background-color: green; */
+}
+
+.number1 {
+    background: url(../img/1.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.number2 {
+    background: url(../img/2.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.number3 {
+    background: url(../img/3.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.number4 {
+    background: url(../img/4.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.number5 {
+    background: url(../img/5.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.number6 {
+    background: url(../img/6.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.number7 {
+    background: url(../img/7.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.number8 {
+    background: url(../img/8.png);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+
+.timer {
+    align-content: right;
+    float:right;
+}
+
+.mines {
+    align-content: left;
+    float:right;
+}

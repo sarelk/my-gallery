@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Coding Academy</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body onload="init()">
+    <div class="paper">
+        <header>
+            <h1>
+                Todos <span></span>
+                <button class="btn btn-add" onclick="onAddTodo()">+</button>
+            </h1>
+        </header>
+        <div class="content">
+            <ul class="todos clean-list">
+
+            </ul>
+            
+            <div class="filter-zone">
+                <h3>Filter</h3>
+                <select onchange="onFilterChange(this.value)">
+                    <option >All</option>
+                    <option >Done</option>
+                    <option >Active</option>
+                </select>
+            </div>
+              
+            <div class="filter-zone">
+                <h3>Sort By</h3>
+                <select onchange="onSortChange(this.value)">
+                    <option >Text</option>
+                    <option >Cearted</option>
+                    <option >Importance</option>
+                </select>
+            </div>
+            <div class="todo-stats">
+                Active <span class="active-count"></span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="js/storage-service.js"></script>
+    <script src="js/todo-service.js"></script>
+    <script src="js/todo-controller.js"></script>
+</body>
+
+</html>

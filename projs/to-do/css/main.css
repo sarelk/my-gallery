@@ -1,0 +1,40 @@
+
+.clean-list {
+    list-style: none;
+}
+
+/* Components */
+* {
+  box-sizing:border-box;
+}
+
+body {
+  background: #f1f1f1;
+  font-family:helvetica neue, helvetica, arial, sans-serif;
+  font-weight:200;
+}
+.btn {
+    border: 0;
+    padding: 0.5em 1em;
+    color: darkred;
+    border-radius: 4px;
+    background: f2e3df;
+    text-decoration: none;
+    transition: 0.5s;
+}
+.btn:hover {
+    background-color:lightsalmon;
+}
+
+  .btn-add {
+      float: right;
+  }
+
+  .done {
+      text-decoration: line-through;
+  }
+
+  .filter-zone {
+      background-color: lightgray;
+      padding: 10px;
+  }

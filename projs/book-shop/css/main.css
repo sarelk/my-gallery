@@ -1,0 +1,27 @@
+
+@import url(../lib/bs4/css/bootstrap.min.css);
+
+body {
+    padding: 50px;
+}
+.car-item {
+    width: 18%;
+    margin: 20px;
+}
+
+.cars-container {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.delete-btn {
+    cursor: pointer;
+}
+
+table tr:hover {
+    border-left: 5px solid rgb(0, 108, 255);
+}
+
+.modal-body img {
+    width: 30vh;
+}
