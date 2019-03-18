@@ -5,7 +5,7 @@ var gProjs;
 function createPorjects() {
     var projects = [];
     projects.push(createPorject("book-shop","Book Shop","Manage this back-end of a book shop", "A backend admin penel for a book e-commerce store, for the owner use or for his emplyees only. ",["Admin","Manage"]));
-    projects.push(createPorject("guess-me","Guess Me","Can the app guess who youre thinknig of?", "An example of how a simple JS code can eventually know on which person you are thinking of.",["AI","Game"]));
+    projects.push(createPorject("meme-genereator","Meme genereator","A meme genereator using HTML5 canvas & JS", "An example of how a JS can manipulate the HTML5 canvas and create a meme genereator. Feel free to share your'e memes :)",["Meme","Genereator"]));
     projects.push(createPorject("mine-sweeper","Mine Sweeper","The classic game, now in JavaScript", "An example of vanilla javascript power, with recreating the nostalgic mine sweeper game. Enjoy",["Classic","Game"]));
     projects.push(createPorject("pac-man","Pacman","The classic game, now in JavaScript", "Another example of vanilla javascript power, recreating the nostalgic pacman game from the 80s.",["Classic","Game"]));
     projects.push(createPorject("ball-board","Ball Board","The classic game, now in JavaScript", "Another example of vanilla javascript power, recreating the nostalgic ball board game. Enjoy",["Classic","Game"]));

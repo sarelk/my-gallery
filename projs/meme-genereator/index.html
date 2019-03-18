@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Meme Generetor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+<body onload="init()" id="top">
+    <div class="wrapper">
+        <!-- MEME EDITOR SECTION -->
+        <section class="meme-editor display-none">
+            <section id="lab">
+                <div class="sectionheader">
+                    <h1>Meme Editor</h1>
+                </div>
+                <nav>
+                    <div id='cssmenu'>
+                        <ul>
+                            <li><a href='index.html'><span>BACK TO GALLERY</span></a></li>
+                        </ul>
+                    </div>
+                </nav>
+                <div id="container" class="container flex">
+                        <div class="meme">
+                                Upload your own img: <input type="file" name="image"
+                                    onchange="onFileInputChange(event)" /><br /><br />
+                                <a href="#" onclick="downloadImg(this)" title="Download" download="my-img.jpg"><button
+                                        class="btn btn-secondary">Download Meme <i
+                                            class="fas fa-file-download"></i></button></a>
+                                <button onclick="onAddLine()" class="btn btn-secondary">Add another line <i
+                                        class="fab fa-line"></i></button><br />
+                                <div class="canvasContainer">
+                                    <canvas id="myCanvas"></canvas>
+                                    <div class="myDiv"></div>
+                                </div>
+                            </div>
+                    <div class="editor">
+                        <div class="line-wrapper" data-name="first">
+                            <div class="control-box">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-secondary" onclick="onLineUpDown('up')"><i
+                                            class="fas fa-arrow-up"></i></button>
+                                    <button type="button" class="btn btn-secondary" onclick="onLineUpDown('down')"><i
+                                            class="fas fa-arrow-down"></i></button>
+                                </div>
+
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-secondary" onclick="onAlign('left')"><i
+                                            class="fas fa-align-left"></i></button>
+                                    <button type="button" class="btn btn-secondary" onclick="onAlign('center')"
+                                        autofocus><i class="fas fa-align-justify"></i></button>
+                                    <button type="button" class="btn btn-secondary" onclick="onAlign('right')"><i
+                                            class="fas fa-align-right"></i></button>
+                                </div>
+
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-secondary"><i class="fas fa-font"></i>
+                                        <select class="font" onchange="onDoMeme()">
+                                            <option value="impact">Impact</option>
+                                            <option value="arial">Arial</option>
+                                            <option value="curier-new">Curier</option>
+                                        </select>
+                                    </button>
+                                    <button type="button" id="palette" class="btn btn-secondary palette"><label for="iPalette"><i
+                                                class="fas fa-palette"></i></label><input type="color" class="txt-color"
+                                            value="#ffffff" id="iPalette" onchange="onDoMeme()" /></button>
+
+                                </div>
+
+                                <div class="btn-group" role="group">
+                                    <input type="hidden" class="fontSize" value="48" />
+                                    <button type="button" class="btn btn-secondary" onclick="onDoFontSize('plus')"><i
+                                            class="fas fa-plus"></i></button>
+                                    <button type="button" class="btn btn-secondary" onclick="onDoFontSize('minus')"><i
+                                            class="fas fa-minus"></i></button>
+                                </div>
+                                <button type="button" class="btn btn-secondary" onclick="onRemove()"><i
+                                        class="fas fa-trash-alt"></i></i></button>
+                            </div>
+                            <input type="text" class="line-input" placeholder="Write line here"
+                            onkeyup="onDoMeme()" /><br />
+                        <input type="hidden" class="yPos" value="85" />
+                        <input type="hidden" class="align" value="center" />
+                        </div>
+
+                        <div class="line-wrapper" data-name="second">
+                            <div class="control-box">
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-secondary" onclick="onLineUpDown('up')"><i
+                                            class="fas fa-arrow-up"></i></button>
+                                    <button type="button" class="btn btn-secondary" onclick="onLineUpDown('down')"><i
+                                            class="fas fa-arrow-down"></i></button>
+                                </div>
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-secondary" onclick="onAlign('left')"><i
+                                            class="fas fa-align-left"></i></button>
+                                    <button type="button" class="btn btn-secondary" onclick="onAlign('center')"
+                                        autofocus><i class="fas fa-align-justify"></i></button>
+                                    <button type="button" class="btn btn-secondary" onclick="onAlign('right')"><i
+                                            class="fas fa-align-right"></i></button>
+                                </div>
+
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-secondary"><i class="fas fa-font"></i>
+                                        <select class="font" onchange="onDoMeme()">
+                                            <option value="impact">Impact</option>
+                                            <option value="arial">Arial</option>
+                                            <option value="curier-new">Curier</option>
+                                        </select>
+                                    </button>
+                                    <button id="palette" type="button" class="btn btn-secondary"><label for="iPalette"><i
+                                                class="fas fa-palette"></i></label><input type="color" class="txt-color"
+                                            value="#ffffff" id="iPalette" onchange="onDoMeme()" /></button>
+
+                                </div>
+
+                                <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-secondary" onclick="onDoFontSize('plus')"><i
+                                            class="fas fa-plus"></i></button>
+                                    <button type="button" class="btn btn-secondary" onclick="onDoFontSize('minus')"><i
+                                            class="fas fa-minus"></i></button>
+                                </div>
+                                <button type="button" class="btn btn-secondary" onclick="onRemove()"><i
+                                        class="fas fa-trash-alt"></i></i></button>
+                            </div>
+                            <input type="text" class="line-input" placeholder="Write line here"
+                            onkeyup="onDoMeme()" /><br />
+                        <input type="hidden" class="fontSize" value="48" />
+                        <input type="hidden" class="yPos" value="-85" />
+                        <input type="hidden" class="align" value="center" />
+                        </div>
+
+                        <div class="extra-lines"></div>
+                    </div>
+                </div>
+
+
+    </div>
+
+    <br>
+    <div id="fb-root"></div>
+    <div class="share-container"></div>
+    </section>
+    </section>
+    <!-- END OF MEME EDITOR SECTION -->
+
+    <!-- GALLERY MEME SECTION -->
+    <section class="meme-gallery">
+
+        <section id="lab">
+            <div class="sectionheader">
+                <h1>Choose an image to meme</h1>
+                <nav>
+                    <div id='cssmenu'>
+                        <ul>
+                            <li class='active'><a href='#'><span>GALLERY</span></a></li>
+                            <li><a href='#contact'><span>GET IN TOUCH</span></a></li>
+                            <li class='last'><a href='#about'><span>ABOUT</span></a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+            <form class="searchForm" action="">
+                <div class="search flex align-center">
+                    <input class="sInput" type="search" list="keywords" placeholder="Filter by keyword"
+                        onkeyup="onSearch(this.value)" />
+                    <i class="fa fa-search"></i>
+                    <datalist id="keywords">
+                        <option value="tv">
+                        <option value="movies">
+                        <option value="animals">
+                        <option value="baby">
+                        <option value="happy">
+                    </datalist>
+                </div>
+            </form>
+
+            <article class="imgs-container">
+            </article>
+
+            <main>
+                <div id="about" class="about flex">
+                    <div class="selfImg">
+                        <img src="img/gallery.jpg" />
+                    </div>
+                    <div class="selfText">
+                        <h2>The Meme Generetor</h2>
+                        Welcome! with this generetor you can make some hilarious(or not) memes. You can choose
+                        from our ready photos to meme or upload some of your own. Enjoy!
+
+                    </div>
+                </div>
+            </main>
+
+            <div id="contact" class="contact">
+                <h2>We will love to hear from you!</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                        <small id="emailHelp">We'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="Subject">Subject</label>
+                        <input type="text" class="form-control subject" id="Subject" placeholder="Hello">
+                    </div>
+                    <div class="form-group">
+                        <label for="msg">Message Body</label>
+                        <textarea rows="4" cols="50" class="form-control msg" id="msg"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="onASubmit()">Submit</button>
+                </form>
+            </div>
+            <p class="cofferight"><br />All rights are not resereved. 2019</p><a href="#top"><button
+                    class="btn btn-secondary up"><i class="fas fa-arrow-up"></i></button></a>
+        </section>
+
+    </section>
+    <!-- END GALLERY MEME SECTION -->
+    </div>
+    <script src="lib/jquery-3.3.1.min.js"></script>
+    <script src="lib/bootstrap.js"></script>
+
+    <script src="js/upload-service.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
