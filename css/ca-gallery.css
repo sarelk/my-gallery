@@ -192,14 +192,7 @@ body {
 header.masthead {
     text-align: center;
     color: white;
-    background-image: url("../img/header-bg.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: top center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background-image: linear-gradient(to right, #F5A623 0, #88FFE3 100%);
 }
 header.masthead .intro-text {
     padding-top: 150px;
